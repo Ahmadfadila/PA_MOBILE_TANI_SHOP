@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "669979270184",
+    "project_id": "pa-mobile-tanishop",
+    "storage_bucket": "pa-mobile-tanishop.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:669979270184:android:65786ecb3040c9a54b291d",
+        "android_client_info": {
+          "package_name": "com.example.pa_mobile_tani_shop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "669979270184-e8t1sqicqfjck6pgjvt28pmloqh3en5d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYTbvrIaGsyyk3szIHuDIqY3ECEXwm83Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "669979270184-e8t1sqicqfjck6pgjvt28pmloqh3en5d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
