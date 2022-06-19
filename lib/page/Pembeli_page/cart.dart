@@ -1,9 +1,13 @@
+import 'dart:ffi';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pa_mobile_tani_shop/Controller/user_controller.dart';
 import 'package:pa_mobile_tani_shop/components/bottom_nav_bar_pembeli.dart';
 import 'package:pa_mobile_tani_shop/page/Pembeli_page/Home_Pembeli.dart';
+import 'package:pa_mobile_tani_shop/page/Pembeli_page/StruckPage.dart';
+import 'package:pa_mobile_tani_shop/page/about_page.dart';
 import 'package:pa_mobile_tani_shop/services/Barang_services.dart';
 import 'package:pa_mobile_tani_shop/services/user_barang_services.dart';
 
@@ -80,7 +84,7 @@ class Cart extends StatelessWidget {
                 title: Text('Tentang Kami'),
                 onTap: () => Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (_) => MyHome()),
+                  MaterialPageRoute(builder: (_) => AboutPage()),
                 ),
               )
           ],
@@ -229,8 +233,71 @@ class Cart extends StatelessWidget {
                             ),
                             onPressed: () {
                               UserBarang.where("id_user", isEqualTo: userController.idUser.value).get().then((value) => value.docs.forEach((element) { 
-                                UserBarang.doc(element.id).delete();
+                                UserBarang.doc(element.id).delete().then((value) => Get.off(StructPage()));
                               }));
+                              ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Stack(
+                                  clipBehavior: Clip.none,
+                                  children: [
+                                    Container(
+                                      padding: EdgeInsets.all(16),
+                                      height: 70,
+                                      decoration: BoxDecoration(
+                                        color:
+                                            Color.fromARGB(239, 152, 247, 175),
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(20)),
+                                      ),
+                                      child: Row(
+                                        children: [
+                                          const SizedBox(
+                                            width: 60,
+                                          ),
+                                          Expanded(
+                                              child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                "Terima Kasih",
+                                                style: TextStyle(
+                                                    color: Color.fromARGB(
+                                                        255, 0, 0, 0),
+                                                    fontSize: 12,
+                                                    fontFamily: 'Poppins'),
+                                                textAlign: TextAlign.center,
+                                              ),
+                                              Text(
+                                                "Sudah Belanja",
+                                                style: TextStyle(
+                                                    color: Color.fromARGB(
+                                                        255, 0, 0, 0),
+                                                    fontSize: 12,
+                                                    overflow:
+                                                        TextOverflow.ellipsis,
+                                                    fontFamily: 'Poppins'),
+                                              ),
+                                            ],
+                                          ))
+                                        ],
+                                      ),
+                                    ),
+                                    Positioned(
+                                      bottom: 10,
+                                      left: 10,
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.only(
+                                          bottomLeft: Radius.circular(20),
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                behavior: SnackBarBehavior.floating,
+                                backgroundColor: Colors.transparent,
+                              ),
+                            );
                             },
                             child: Text(
                               "Check Out Now",

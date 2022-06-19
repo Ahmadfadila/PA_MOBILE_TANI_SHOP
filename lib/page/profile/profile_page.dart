@@ -5,6 +5,7 @@ import 'package:pa_mobile_tani_shop/Controller/user_controller.dart';
 import 'package:pa_mobile_tani_shop/components/bottom_nav_bar_pembeli.dart';
 import 'package:pa_mobile_tani_shop/components/bottom_nav_bar_penjual.dart';
 import 'package:pa_mobile_tani_shop/page/Pembeli_page/Home_Pembeli.dart';
+import 'package:pa_mobile_tani_shop/page/about_page.dart';
 import 'package:pa_mobile_tani_shop/page/login.dart';
 import 'package:pa_mobile_tani_shop/page/profile/edit_password.dart';
 import 'package:pa_mobile_tani_shop/page/profile/edit_profile_page.dart';
@@ -191,7 +192,7 @@ class ProfilePage extends StatelessWidget {
                 title: Text('Tentang Kami'),
                 onTap: () => Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (_) => MyHome()),
+                  MaterialPageRoute(builder: (_) => AboutPage()),
                 ),
               )
           ],

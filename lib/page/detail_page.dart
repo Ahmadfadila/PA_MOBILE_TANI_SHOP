@@ -176,25 +176,6 @@ class DetailPage extends StatelessWidget {
                     UserBarangServices.addUserBarang(idBarang).then((value) {
                       Get.back();
                     });
-                    // } else {
-                    //   isSigned = false;
-                    //   Get.defaultDialog(
-                    //     middleText: "Anda yakin ingin batal?",
-                    //     textConfirm: "Ya",
-                    //     textCancel: "Tidak",
-                    //     confirmTextColor: Colors.black,
-                    //     cancelTextColor: Colors.red,
-                    //     buttonColor: Color.fromARGB(255,152,247,175),
-                    //     middleTextStyle: TextStyle(
-                    //       fontFamily: "Quicksand"
-                    //     ),
-                    //     onConfirm: () {
-                    //       print(isSigned);
-                    //       UserBarangServices.deleteUserBarang(idBarang);
-                    //       Get.off(() => MyHome());
-                    //     }
-                    //   );
-                    // }
                   }
                 },
                 backgroundColor: Color.fromARGB(255,152,247,175),

@@ -178,7 +178,6 @@ class _LoginPageState extends State<LoginPage> {
                                 });
                               }
                             } 
-                            // Get.off(PenjualHome());
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
                                 content: Stack(
