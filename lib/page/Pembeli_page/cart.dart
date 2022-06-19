@@ -15,6 +15,7 @@ class Cart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     getTotal.getTotal();
+    userController.getId();
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -227,10 +228,10 @@ class Cart extends StatelessWidget {
                               primary: Colors.green
                             ),
                             onPressed: () {
-                              Barang.where("id_user",isEqualTo: userController.idUser.value).get().then((value){
-                                value.docs.map((e) => Barang.doc(e.get("id_barang")).delete());
-                              });
-                            }, 
+                              UserBarang.where("id_user", isEqualTo: userController.idUser.value).get().then((value) => value.docs.forEach((element) { 
+                                UserBarang.doc(element.id).delete();
+                              }));
+                            },
                             child: Text(
                               "Check Out Now",
                             ),

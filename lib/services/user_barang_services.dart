@@ -38,4 +38,7 @@ class UserBarangServices {
     UserBarang.where('id_user', isEqualTo: userId).where('id_barang', isEqualTo: idBarang ).get()
     .then((value) => UserBarang.doc(value.docs[0].id).delete());    
   }
+
+  
+
 }
